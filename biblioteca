@@ -1,0 +1,115 @@
+drop table livros;
+drop table usuarios;
+drop table emprestimos;
+
+
+
+CREATE TABLE livros (
+id serial primary key,
+titulo varchar(100),
+autorLivro varchar(100)
+
+
+
+);
+
+
+
+CREATE TABLE usuarios (
+id serial primary key,
+nome varchar(100) not null,
+idade integer
+);
+
+
+
+CREATE TABLE emprestimos (
+id serial primary key,
+id_do_livro integer,
+id_do_usuario integer,
+dia_emprestimo date,
+dia_devolucao date
+);
+
+
+
+CREATE TABLE funcionarios(
+id serial PRIMARY KEY,
+nome varchar(100),
+idade varchar(150),
+
+
+
+
+);
+
+
+
+select * from emprestimos;
+
+
+
+insert into livros (titulo) values ('Hamlet');
+insert into livros (titulo) values ('Em Busca do Tempo Perdido');
+insert into livros (titulo) values ('Middlemarch');
+insert into livros (titulo) values ('O Grande Gatsby');
+insert into livros (titulo) values ('As Aventuras de Huckleberry Finn');
+insert into livros (titulo) values ('Harry Potter e a pedra filosofal');
+insert into livros (titulo) values ('Harry Potter e a camara secreta');
+insert into livros (titulo) values ('Harry potter e o cálice de fogo');
+insert into livros (titulo) values ('harry potter e o enigma do principe');
+insert into livros (titulo) values ('O homem de giz');
+
+
+select * from livros;
+
+
+
+
+insert into usuarios (nome) values
+('Paulo'),
+('Marcelo'),
+('George'),
+('Oliveira'),
+('Julia'),
+('Giovanna'),
+('Rafael'),
+('Armando'),
+('Severino'),
+('Chloe');
+
+
+
+
+insert into usuarios (idade) values
+('12'),
+('25'),
+('65'),
+('32'),
+('16'),
+('48'),
+('22'),
+('33'),
+('17'),
+('19'),
+
+
+
+select * from usuarios;
+
+inner join usuarios as u
+on e.id_usuarios = u.id
+
+
+
+inner join livros as l
+on e.id_livros = l.id
+
+
+
+
+select u.nome,
+u.idade.id_livros,
+l.titulo,
+e.data_emprestimo,
+from emprestimo as e
